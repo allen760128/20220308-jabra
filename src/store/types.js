@@ -1,0 +1,10 @@
+export const handle_slideToggle = 'handle_slideToggle';
+export const handle_music = 'handle_music';
+export const handle_musicReset = 'handle_musicReset';
+export const handle_setlow = 'handle_setlow';
+export const handle_setMidlow = 'handle_setMidlow';
+export const handle_setMiddle = 'handle_setMiddle';
+export const handle_setMidhight = 'handle_setMidhight';
+export const handle_setHight = 'handle_setHight';
+export const handle_musicSwitch = 'handle_musicSwitch';
+export const handle_leftLink = 'handle_leftLink';
