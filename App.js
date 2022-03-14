@@ -5,6 +5,7 @@ import Mode from './src/screen/mode';
 import Fuck from './src/screen/fuck';
 import Nice from './src/screen/nice';
 import Shit from './src/screen/shit';
+import Add from './src/screen/add';
 import React from 'react';
 import { StoreContext } from 'redux-react-hook';
 import Store from './src/store/store';
@@ -27,6 +28,34 @@ const App = () => {
         </Stack.Navigator>
        </NavigationContainer> */}
 
+
+  const Modepage = () => {
+    return (
+      <Stack.Navigator
+        initialRouteName='mode'
+        screenOptions={() => ({
+
+          headerStyle: {
+            backgroundColor: '#181818',
+            shadowColor: 'transparent',
+            borderBottomWidth: 0
+          },
+          headerTintColor: '#69696b',
+          headerTitle: 'Jabra Elite 65t',
+        })}
+
+      >
+        <Stack.Screen name="mode" component={Mode}
+        // options={{
+        //   headerShown: false
+        // }}
+        />
+        <Stack.Screen name="編輯偏好" component={Add} />
+      </Stack.Navigator>
+    )
+
+  }
+
   return (
     <StoreContext.Provider value={Store}>
 
@@ -41,6 +70,7 @@ const App = () => {
 
         < NavigationContainer >
           <Tab.Navigator
+            initialRouteName='首頁'
             screenOptions={({ route }) => ({
               tabBarIcon: ({ focused }) => {
                 let piclink;
@@ -70,7 +100,10 @@ const App = () => {
             })}
           >
             <Tab.Screen name="首頁" component={Index} />
-            <Tab.Screen name="情境模式" component={Mode} />
+            <Tab.Screen name="情境模式" component={Modepage}
+              options={{
+                headerShown: false
+              }} />
             <Tab.Screen name="探索" component={Fuck} />
             <Tab.Screen name="關於" component={Shit} />
           </Tab.Navigator>

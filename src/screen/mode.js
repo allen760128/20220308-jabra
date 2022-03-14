@@ -5,9 +5,9 @@ import { Slider, Icon } from 'react-native-elements';
 import Eq from './eq';
 import { useMappedState, useDispatch } from 'redux-react-hook';
 import MusicType from './musicType';
-import { handleMusicSwitch, handleLeftLink } from '../store/actions';
+import { handleMusicSwitch, handleLeftLink, handleStideToggle } from '../store/actions';
 
-export default function Mode() {
+export default function Mode(props) {
     const [soundSwitch, setSoundSwitch] = useState(false);
     const scrollenabled = useMappedState(state => state.slideToggle);
     const dispatch = useDispatch();
@@ -17,8 +17,12 @@ export default function Mode() {
     { id: 2, picLink_1: require('../../assets/img/mode_icon7.png'), picLink_2: require('../../assets/img/mode_icon8.png'), link: '' },
     { id: 3, picLink_1: require('../../assets/img/mode_icon9.png'), picLink_2: require('../../assets/img/mode_icon10.png'), link: '' }
     ];
-    return (
 
+    const handleto = () => {
+        props.navigation.push('編輯偏好');
+    }
+
+    return (
         <View style={styles.container}>
             <View style={styles.leftNav}>
                 <View style={styles.leftContent}>
@@ -41,7 +45,7 @@ export default function Mode() {
                 <View style={styles.rightContent}>
                     <View style={styles.title}>
                         <Text style={styles.h1}>偏好</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => { handleto() }}>
                             <Image style={{ width: 30, height: 30 }} source={require('../../assets/img/mode_icon1.png')}></Image>
                         </TouchableOpacity>
                     </View>
