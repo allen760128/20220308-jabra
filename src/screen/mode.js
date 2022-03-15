@@ -1,22 +1,18 @@
 
-import React, { useState, useRef } from 'react';
-import { StyleSheet, Text, View, ImageBackground, Image, TouchableOpacity, Switch, ScrollView, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Switch, ScrollView, FlatList } from 'react-native';
 import { Slider, Icon } from 'react-native-elements';
 import Eq from './eq';
 import { useMappedState, useDispatch } from 'redux-react-hook';
 import MusicType from './musicType';
 import { handleMusicSwitch, handleLeftLink, handleStideToggle } from '../store/actions';
+import Leftnav from '../common/leftnav';
 
 export default function Mode(props) {
     const [soundSwitch, setSoundSwitch] = useState(false);
     const scrollenabled = useMappedState(state => state.slideToggle);
     const dispatch = useDispatch();
-    const leftLink = useMappedState(state => state.leftLink);
 
-    const leftData = [{ id: 1, picLink_1: require('../../assets/img/mode_icon5.png'), picLink_2: require('../../assets/img/mode_icon6.png'), link: '' },
-    { id: 2, picLink_1: require('../../assets/img/mode_icon7.png'), picLink_2: require('../../assets/img/mode_icon8.png'), link: '' },
-    { id: 3, picLink_1: require('../../assets/img/mode_icon9.png'), picLink_2: require('../../assets/img/mode_icon10.png'), link: '' }
-    ];
 
     const handleto = () => {
         props.navigation.push('編輯偏好');
@@ -24,23 +20,8 @@ export default function Mode(props) {
 
     return (
         <View style={styles.container}>
-            <View style={styles.leftNav}>
-                <View style={styles.leftContent}>
-                    {
-                        leftData.map(data => (
-                            data.id === leftLink ?
-                                <TouchableOpacity style={styles.leftActive} key={data.id} onPress={() => { dispatch(handleLeftLink(data)) }}>
-                                    {/* {data.picLink_2} */}
-                                    <Image style={{ width: 40, height: 40 }} source={data.picLink_2}></Image>
-                                </TouchableOpacity>
-                                :
-                                <TouchableOpacity style={styles.leftInactive} key={data.id} onPress={() => { dispatch(handleLeftLink(data)) }}>
-                                    <Image style={{ width: 40, height: 40 }} source={data.picLink_1}></Image>
-                                </TouchableOpacity>
-                        ))}
+            <Leftnav></Leftnav>
 
-                </View>
-            </ View >
             <ScrollView scrollEnabled={scrollenabled} style={{ flex: 1 }} bounces={false}>
                 <View style={styles.rightContent}>
                     <View style={styles.title}>
@@ -113,34 +94,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        color: '#fddcad',
         flexDirection: 'row',
     },
-    leftNav: {
-        flex: 0.25,
-        backgroundColor: '#484a4d',
-        alignItems: 'center',
-        paddingTop: 15,
-    },
-    leftActive: {
-        width: 50,
-        height: 50,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 50,
-        backgroundColor: '#fdd103',
-        marginTop: 10,
-        marginBottom: 10
-    },
-    leftInactive: {
-        width: 50,
-        height: 50,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 50,
-        marginTop: 10,
-        marginBottom: 10
-    },
+
     rightContent: {
         flex: 0.75,
         backgroundColor: '#4f5157',

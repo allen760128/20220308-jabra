@@ -5,7 +5,9 @@ import Mode from './src/screen/mode';
 import Fuck from './src/screen/fuck';
 import Nice from './src/screen/nice';
 import Shit from './src/screen/shit';
-import Add from './src/screen/add';
+import ModeSSetting from './src/screen/modesetting';
+import Aroundsound from './src/screen/aroundsound';
+import Musiceq from './src/screen/musiceq';
 import React from 'react';
 import { StoreContext } from 'redux-react-hook';
 import Store from './src/store/store';
@@ -18,18 +20,9 @@ const App = () => {
 
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
-  {/* <NavigationContainer>
-       <Stack.Navigator>
-         <Stack.Screen name="Index" component={Index} />
-          <Stack.Screen name="Profiles" component={Profile} />
-          <Stack.Screen name="Fick" component={Fuck} />
-          <Stack.Screen name="Shit" component={Shit} />
-          <Stack.Screen name="Nice" component={Nice} />
-        </Stack.Navigator>
-       </NavigationContainer> */}
-
 
   const Modepage = () => {
+
     return (
       <Stack.Navigator
         initialRouteName='mode'
@@ -45,16 +38,30 @@ const App = () => {
         })}
 
       >
-        <Stack.Screen name="mode" component={Mode}
-        // options={{
-        //   headerShown: false
-        // }}
-        />
-        <Stack.Screen name="編輯偏好" component={Add} />
+        <Stack.Screen name="mode" component={Mode} />
+        <Stack.Screen name="編輯偏好" component={ModeSSetting}
+          options={{
+            headerTitle: '編輯偏好',
+            headerTintColor: '#fff',
+            headerBackTitle: '返回'
+          }} />
+        <Stack.Screen name="周遭聲音" component={Aroundsound}
+          options={{
+            headerTitle: '周遭聲音',
+            headerTintColor: '#fff',
+            headerBackTitle: '返回'
+          }} />
+        <Stack.Screen name='音樂等化器' component={Musiceq}
+          options={{
+            headerTitle: '音樂等化器',
+            headerTintColor: '#fff',
+            headerBackTitle: '返回'
+          }} />
       </Stack.Navigator>
     )
 
   }
+
 
   return (
     <StoreContext.Provider value={Store}>
@@ -62,8 +69,6 @@ const App = () => {
       <View style={{ flex: 1 }}>
 
         <StatusBar
-          // translucent
-          // backgroundColor={'#000'}
           barStyle='light-content'
           hidden={false}
         />
