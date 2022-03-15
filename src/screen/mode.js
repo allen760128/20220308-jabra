@@ -66,7 +66,7 @@ export default function Mode(props) {
                     <View style={styles.sec4}>
                         <View style={styles.sec4_titleWrap}>
                             <Text style={styles.sec4_title}>音景</Text>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => { props.navigation.push('音景') }}>
                                 <Image style={{ width: 30, height: 30 }} source={require('../../assets/img/mode_icon3.png')}></Image>
                             </TouchableOpacity>
                         </View>

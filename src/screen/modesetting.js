@@ -6,9 +6,9 @@ const Mode_setting = (props) => {
     // const han = () => { props.navigation.push('周遭聲音') }
     const Data = [{ id: 1, pic: require('../../assets/img/mode_setting_icon1.png'), link: '周遭聲音', title: '周遭聲音' },
     { id: 2, pic: require('../../assets/img/mode_setting_icon2.png'), link: '音樂等化器', title: '音樂等化器' },
-    { id: 3, pic: require('../../assets/img/mode_setting_icon3.png'), link: '', title: '聲音體驗' },
-    { id: 4, pic: require('../../assets/img/mode_setting_icon4.png'), link: '', title: '通話體驗' },
-    { id: 5, pic: require('../../assets/img/mode_setting_icon5.png'), link: '', title: '耳機協助' }];
+    { id: 3, pic: require('../../assets/img/mode_setting_icon3.png'), link: '聲音體驗', title: '聲音體驗' },
+    { id: 4, pic: require('../../assets/img/mode_setting_icon4.png'), link: '通話體驗', title: '通話體驗' },
+    { id: 5, pic: require('../../assets/img/mode_setting_icon5.png'), link: '耳機協助', title: '耳機協助' }];
     return (
         <View style={styles.container}>
             <FlatList

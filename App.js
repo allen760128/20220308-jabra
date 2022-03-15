@@ -7,7 +7,11 @@ import Nice from './src/screen/nice';
 import Shit from './src/screen/shit';
 import ModeSSetting from './src/screen/modesetting';
 import Aroundsound from './src/screen/aroundsound';
+import Soundtry from './src/screen/soundtry';
 import Musiceq from './src/screen/musiceq';
+import Calltry from './src/screen/calltry';
+import Earpodasis from './src/screen/earpodasis';
+import Noisecover from './src/screen/noisecover';
 import React from 'react';
 import { StoreContext } from 'redux-react-hook';
 import Store from './src/store/store';
@@ -57,6 +61,32 @@ const App = () => {
             headerTintColor: '#fff',
             headerBackTitle: '返回'
           }} />
+        <Stack.Screen name='聲音體驗' component={Soundtry}
+          options={{
+            headerTitle: '聲音體驗',
+            headerTintColor: '#fff',
+            headerBackTitle: '返回'
+          }} />
+        <Stack.Screen name='通話體驗' component={Calltry}
+          options={{
+            headerTitle: '通話體驗',
+            headerTintColor: '#fff',
+            headerBackTitle: '返回'
+          }} />
+        <Stack.Screen name='耳機協助' component={Earpodasis}
+          options={{
+            headerTitle: '耳機協助',
+            headerTintColor: '#fff',
+            headerBackTitle: '返回'
+          }}
+        />
+        <Stack.Screen name='音景' component={Noisecover}
+          options={{
+            headerTitle: '音景',
+            headerTintColor: '#fff',
+            headerBackTitle: '返回'
+          }}
+        />
       </Stack.Navigator>
     )
 
