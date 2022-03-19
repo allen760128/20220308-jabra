@@ -1,29 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { useDispatch, useMappedState } from 'redux-react-hook';
 import { handleLeftLink } from '../store/actions';
 
 
 
-const Leftnav = () => {
+const Leftnav = (props) => {
     const leftLink = useMappedState(state => state.leftLink);
+    const Link = useMappedState(state => state.link);
     const dispatch = useDispatch();
-    const leftData = [{ id: 1, picLink_1: require('../../assets/img/mode_icon5.png'), picLink_2: require('../../assets/img/mode_icon6.png'), link: '' },
-    { id: 2, picLink_1: require('../../assets/img/mode_icon7.png'), picLink_2: require('../../assets/img/mode_icon8.png'), link: '' },
-    { id: 3, picLink_1: require('../../assets/img/mode_icon9.png'), picLink_2: require('../../assets/img/mode_icon10.png'), link: '' }
+    const leftData = [{ id: 1, picLink_1: require('../../assets/img/mode_icon5.png'), picLink_2: require('../../assets/img/mode_icon6.png'), link: 'mode' },
+    { id: 2, picLink_1: require('../../assets/img/mode_icon7.png'), picLink_2: require('../../assets/img/mode_icon8.png'), link: 'commute' },
+    { id: 3, picLink_1: require('../../assets/img/mode_icon9.png'), picLink_2: require('../../assets/img/mode_icon10.png'), link: 'concentrate' }
     ];
+
+    const handleSendData = (data) => {
+        dispatch(handleLeftLink(data));
+        props.aprops.navigation.push(data.link);
+    }
     return (
         <View style={styles.leftNav}>
             <View style={styles.leftContent}>
                 {
                     leftData.map(data => (
                         data.id === leftLink ?
-                            <TouchableOpacity style={styles.leftActive} key={data.id} onPress={() => { dispatch(handleLeftLink(data)) }}>
+                            <TouchableOpacity style={styles.leftActive} key={data.id} onPress={() => { handleSendData(data) }}>
                                 {/* {data.picLink_2} */}
                                 <Image style={{ width: 40, height: 40 }} source={data.picLink_2}></Image>
                             </TouchableOpacity>
                             :
-                            <TouchableOpacity style={styles.leftInactive} key={data.id} onPress={() => { dispatch(handleLeftLink(data)) }}>
+                            <TouchableOpacity style={styles.leftInactive} key={data.id} onPress={() => { handleSendData(data) }}>
                                 <Image style={{ width: 40, height: 40 }} source={data.picLink_1}></Image>
                             </TouchableOpacity>
                     ))}

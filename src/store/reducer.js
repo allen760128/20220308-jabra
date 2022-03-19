@@ -65,7 +65,7 @@ const Reducer = (state = initialState, action) => {
         }
         case handle_leftLink: return {
             ...state,
-            leftLink: action.payload.id
+            leftLink: action.payload.id,
         }
         default: return state;
     }

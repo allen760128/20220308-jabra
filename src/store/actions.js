@@ -2,7 +2,7 @@ import {
     handle_slideToggle, handle_music, handle_musicReset,
     handle_setlow, handle_setMidlow, handle_setMiddle,
     handle_setMidhight, handle_setHight, handle_musicSwitch,
-    handle_leftLink,
+    handle_leftLink, handle_navSendlink,
 } from './types';
 
 export const handleStideToggle = () => {
@@ -59,6 +59,6 @@ export const handleSetHight = (x) => {
 export const handleLeftLink = (data) => {
     return {
         type: handle_leftLink,
-        payload: data
+        payload: data,
     }
 }

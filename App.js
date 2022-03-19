@@ -2,9 +2,8 @@
 import { StyleSheet, Text, View, ImageBackground, StatusBar, Image, SafeAreaView } from 'react-native';
 import Index from './src/screen/index';
 import Mode from './src/screen/mode';
-import Fuck from './src/screen/fuck';
-import Nice from './src/screen/nice';
-import Shit from './src/screen/shit';
+import Explore from './src/screen/explore';
+import About from './src/screen/about';
 import ModeSSetting from './src/screen/modesetting';
 import Aroundsound from './src/screen/aroundsound';
 import Soundtry from './src/screen/soundtry';
@@ -12,6 +11,8 @@ import Musiceq from './src/screen/musiceq';
 import Calltry from './src/screen/calltry';
 import Earpodasis from './src/screen/earpodasis';
 import Noisecover from './src/screen/noisecover';
+import Update from './src/screen/update';
+import Asist from './src/screen/asist'
 import React from 'react';
 import { StoreContext } from 'redux-react-hook';
 import Store from './src/store/store';
@@ -24,6 +25,7 @@ const App = () => {
 
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
+  const StackAbout = createNativeStackNavigator();
 
   const Modepage = () => {
 
@@ -92,6 +94,36 @@ const App = () => {
 
   }
 
+  const Aboutpage = () => {
+    return (
+      <StackAbout.Navigator
+        initialRouteName='about'
+        screenOptions={() => ({
+          headerStyle: {
+            backgroundColor: '#181818',
+            shadowColor: 'transparent',
+            borderBottomWidth: 0
+          },
+          headerTitle: 'Jabra Elite 65t',
+          headerTintColor: '#69696b',
+        })}
+      >
+        <StackAbout.Screen name='about' component={About} />
+        <StackAbout.Screen name='檢查韌體更新' component={Update}
+          options={{
+            headerTintColor: '#fff',
+            headerTitle: '檢查韌體更新',
+            headerBackTitle: '返回'
+          }} />
+        <StackAbout.Screen name='語音助理' component={Asist}
+          options={{
+            headerTintColor: '#fff',
+            headerTitle: '語音助理',
+            headerBackTitle: '返回'
+          }} />
+      </StackAbout.Navigator>
+    )
+  }
 
   return (
     <StoreContext.Provider value={Store}>
@@ -139,8 +171,12 @@ const App = () => {
               options={{
                 headerShown: false
               }} />
-            <Tab.Screen name="探索" component={Fuck} />
-            <Tab.Screen name="關於" component={Shit} />
+            <Tab.Screen name="探索" component={Explore} />
+            <Tab.Screen name="關於" component={Aboutpage}
+              options={{
+                headerShown: false
+              }
+              } />
           </Tab.Navigator>
         </NavigationContainer >
 
