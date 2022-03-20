@@ -14,6 +14,8 @@ import Noisecover from './src/screen/noisecover';
 import Update from './src/screen/update';
 import Asist from './src/screen/asist'
 import Language from './src/screen/language';
+import Techinfo from './src/screen/techinfo';
+import Sign from './src/screen/sign';
 import React from 'react';
 import { StoreContext } from 'redux-react-hook';
 import Store from './src/store/store';
@@ -129,6 +131,18 @@ const App = () => {
             headerBackTitle: '返回'
           }}
         />
+        <StackAbout.Screen name='技術資訊' component={Techinfo}
+          options={{
+            headerTintColor: '#fff',
+            headerTitle: '耳機語言',
+            headerBackTitle: '返回'
+          }} />
+        <StackAbout.Screen name='註冊你的Jabra Elite 65t' component={Sign}
+          options={{
+            headerTintColor: '#fff',
+            headerTitle: '裝置註冊',
+            headerBackTitle: '返回'
+          }} />
       </StackAbout.Navigator>
     )
   }
