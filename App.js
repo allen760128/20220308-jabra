@@ -13,6 +13,7 @@ import Earpodasis from './src/screen/earpodasis';
 import Noisecover from './src/screen/noisecover';
 import Update from './src/screen/update';
 import Asist from './src/screen/asist'
+import Language from './src/screen/language';
 import React from 'react';
 import { StoreContext } from 'redux-react-hook';
 import Store from './src/store/store';
@@ -121,6 +122,13 @@ const App = () => {
             headerTitle: '語音助理',
             headerBackTitle: '返回'
           }} />
+        <StackAbout.Screen name='語音指示語言' component={Language}
+          options={{
+            headerTintColor: '#fff',
+            headerTitle: '耳機語言',
+            headerBackTitle: '返回'
+          }}
+        />
       </StackAbout.Navigator>
     )
   }
