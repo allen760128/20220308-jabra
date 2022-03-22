@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, SectionList, Image, TouchableOpacity } from 're
 const About = (props) => {
 
     const Data = [{ id: 1, title: '使用耳機', data: [{ title: '檢查韌體更新', link: '檢查韌體更新' }, { title: '語音助理', link: '語音助理' }, { title: '語音指示語言', link: '語音指示語言' }, { title: '閱讀使用者手冊', link: '閱讀使用者手冊' }, { title: 'Jabra Elite 65t常見問題', link: 'Jabra Elite 65t常見問題' }] },
-    { id: 2, title: 'Jabra協助', data: [{ title: 'Find My Jabra防丟失功能', link: 'Find My Jabra防丟失功能' }, { title: '註冊你的Jabra Elite 65t', link: '註冊你的Jabra Elite 65t' }, { title: '為你的Jabra Elite 65t評分', link: '為你的Jabra Elite 65t評分' }, { title: '線上購買Jabra', link: '線上購買Jabra' }, { title: '技術資訊', link: '技術資訊' }] },
+    { id: 2, title: 'Jabra協助', data: [{ title: 'Find My Jabra防丟失功能', link: 'Find jabra' }, { title: '註冊你的Jabra Elite 65t', link: '註冊你的Jabra Elite 65t' }, { title: '為你的Jabra Elite 65t評分', link: '為你的Jabra Elite 65t評分' }, { title: '線上購買Jabra', link: '線上購買Jabra' }, { title: '技術資訊', link: '技術資訊' }] },
     { id: 3, title: 'Sound+應用程式', data: [{ title: '為此應用程式評分', link: '為此應用程式評分' }] },
     { id: 4, title: '法律聲明', data: [{ title: '隱私權政策', link: '隱私權政策' }, { title: '法律免責聲明', link: '法律免責聲明' }] },
     ];

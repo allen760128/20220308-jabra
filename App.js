@@ -15,6 +15,7 @@ import Update from './src/screen/update';
 import Asist from './src/screen/asist'
 import Language from './src/screen/language';
 import Techinfo from './src/screen/techinfo';
+import Findjabra from './src/screen/findjabra';
 import Sign from './src/screen/sign';
 import React from 'react';
 import { StoreContext } from 'redux-react-hook';
@@ -143,6 +144,13 @@ const App = () => {
             headerTitle: '裝置註冊',
             headerBackTitle: '返回'
           }} />
+        <StackAbout.Screen name='Find jabra' component={Findjabra}
+          options={{
+            headerTintColor: '#fff',
+            headerTitle: 'Find My Jabra',
+            headerBackTitle: '返回'
+          }}
+        />
       </StackAbout.Navigator>
     )
   }
