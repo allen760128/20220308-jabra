@@ -17,6 +17,7 @@ import Language from './src/screen/language';
 import Techinfo from './src/screen/techinfo';
 import Findjabra from './src/screen/findjabra';
 import Sign from './src/screen/sign';
+import Findoperation from './src/screen/findoperation';
 import React from 'react';
 import { StoreContext } from 'redux-react-hook';
 import Store from './src/store/store';
@@ -151,6 +152,12 @@ const App = () => {
             headerBackTitle: '返回'
           }}
         />
+        <StackAbout.Screen name='運作方式' component={Findoperation}
+          options={{
+            headerTintColor: '#fff',
+            headerTitle: '運作方式',
+            headerBackTitle: '返回'
+          }} />
       </StackAbout.Navigator>
     )
   }

@@ -26,7 +26,7 @@ const Findjabra = (props) => {
             <View style={styles.secWrap}>
                 <View style={styles.sec}>
                     <Text style={{ fontSize: 20, color: '#fff' }}>運作方式</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => { props.navigation.push('運作方式') }}>
                         <Image style={{ width: 20, height: 20 }} source={require('../../assets/img/mode_setting_icon6.png')}></Image>
                     </TouchableOpacity>
 
