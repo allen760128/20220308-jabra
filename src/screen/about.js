@@ -2,6 +2,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, SectionList, Image, TouchableOpacity } from 'react-native';
 
+
 const About = (props) => {
 
     const Data = [{ id: 1, title: '使用耳機', data: [{ title: '檢查韌體更新', link: '檢查韌體更新' }, { title: '語音助理', link: '語音助理' }, { title: '語音指示語言', link: '語音指示語言' }, { title: '閱讀使用者手冊', link: '閱讀使用者手冊' }, { title: 'Jabra Elite 65t常見問題', link: 'Jabra Elite 65t常見問題' }] },

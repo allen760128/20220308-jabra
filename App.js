@@ -18,6 +18,7 @@ import Techinfo from './src/screen/techinfo';
 import Findjabra from './src/screen/findjabra';
 import Sign from './src/screen/sign';
 import Findoperation from './src/screen/findoperation';
+import Location from './src/screen/location';
 import React from 'react';
 import { StoreContext } from 'redux-react-hook';
 import Store from './src/store/store';
@@ -27,13 +28,36 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 const App = () => {
-
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
   const StackAbout = createNativeStackNavigator();
+  const StackMain = createNativeStackNavigator();
 
+  const Mainpage = () => {
+    return (
+      <StackMain.Navigator
+        initialRouteName='index'
+        screenOptions={() => ({
+          headerStyle: {
+            backgroundColor: '#181818',
+            shadowColor: 'transparent',
+            borderBottomWidth: 0
+          },
+          headerTitle: 'Jabra Elite 65t',
+          headerTintColor: '#69696b',
+        })}>
+        <Stack.Screen name='index' component={Index} />
+        <Stack.Screen name='location' component={Location}
+          options={{
+            headerTitle: '尋找我的Jabra',
+            headerTintColor: '#fff',
+            headerBackTitle: '返回'
+          }}
+        />
+      </StackMain.Navigator>
+    )
+  }
   const Modepage = () => {
-
     return (
       <Stack.Navigator
         initialRouteName='mode'
@@ -203,7 +227,10 @@ const App = () => {
               },
             })}
           >
-            <Tab.Screen name="首頁" component={Index} />
+            <Tab.Screen name="首頁" component={Mainpage}
+              options={{
+                headerShown: false
+              }} />
             <Tab.Screen name="情境模式" component={Modepage}
               options={{
                 headerShown: false

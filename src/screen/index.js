@@ -1,11 +1,15 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, ImageBackground, Image, Button, TouchableOpacity, SafeAreaView } from 'react-native';
+
 
 export default function Index(props) {
     const [ch, setCh] = useState('將您的Jabra Elite 65t開機');
     const toProfile = () => {
         props.navigation.push('Profiles')
+    }
+    const handleLocation = () => {
+        props.navigation.push('location');
     }
     return (
         <View style={styles.container}>
@@ -13,7 +17,7 @@ export default function Index(props) {
                 <Text style={styles.h1}>歡迎回來</Text>
                 <Text style={styles.h2}>將您的Jabra Elite 65t開機</Text>
                 <View style={styles.icon1} >
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={() => { handleLocation() }}>
                         <Image style={styles.imageIcon} source={require('../../assets/img/main_icon1.png')}></Image>
                     </TouchableOpacity>
                 </View>
